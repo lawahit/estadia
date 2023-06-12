@@ -82,4 +82,24 @@
       color: #343a40;
       margin-bottom: 1rem;
     }
- 
+    .image-container {
+      background-color: #295786;
+      display: flex;
+  justify-content: center;
+
+    }
+   .pro{
+    height: 50px;
+   
+   }
+   .vv{
+    color: white;
+   }
+
+   .image-containerr {
+    background-color: #295786;
+    display: flex;
+justify-content: center;
+display: block;
+text-align: center;
+  }

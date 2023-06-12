@@ -13,8 +13,7 @@ CREATE TABLE candidato (
   email VARCHAR(30),
   tel varchar(50),
   direccion VARCHAR(50),
-  id_user int,
-  FOREIGN KEY (id_user) REFERENCES usuario (id) ON DELETE CASCADE ON UPDATE CASCADE
+
 
 );
 
@@ -49,8 +48,8 @@ CREATE TABLE vacante (
     actividad_empleo_dos VARCHAR(200),
     id_herramienta INT,
     id_candidato INT,
-    FOREIGN KEY (id_herramienta) REFERENCES herramientas (id) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (id_candidato) REFERENCES candidato (id) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (id_herramienta) REFERENCES herramientas (id) ON DELETE CASCADE ,
+    FOREIGN KEY (id_candidato) REFERENCES candidato (id) ON DELETE CASCADE 
 );
 
 -- Crear la tabla detalle
@@ -60,7 +59,7 @@ CREATE TABLE detalle (
   CURP VARCHAR(18),
   NSS VARCHAR(11),
   id_candidato INT,
-  FOREIGN KEY (id_candidato) REFERENCES candidato (id) ON DELETE CASCADE ON UPDATE CASCADE
+  FOREIGN KEY (id_candidato) REFERENCES candidato (id) ON DELETE CASCADE 
 );
 
 -- Crear la tabla ciudad
@@ -68,7 +67,7 @@ CREATE TABLE ciudad (
   id INT PRIMARY KEY AUTO_INCREMENT,
   nombre VARCHAR(30),
   id_candidato INT,
-  FOREIGN KEY (id_candidato) REFERENCES candidato (id) ON DELETE CASCADE ON UPDATE CASCADE
+  FOREIGN KEY (id_candidato) REFERENCES candidato (id) ON DELETE CASCADE 
 );
 
 -- Crear la tabla carrera
@@ -82,18 +81,19 @@ CREATE TABLE universidad (
   id INT PRIMARY KEY AUTO_INCREMENT,
   nombre VARCHAR(60),
   id_carrera INT,
-  FOREIGN KEY (id_carrera) REFERENCES carrera (id) ON DELETE CASCADE ON UPDATE CASCADE
+  FOREIGN KEY (id_carrera) REFERENCES carrera (id) ON DELETE CASCADE 
 );
 
 -- Crear la tabla formacion_educativa
 CREATE TABLE formacion_educativa (
+  id INT PRIMARY KEY AUTO_INCREMENT,
   titulo VARCHAR(30),
   periodo_inicio date,
   periodo_termino date,
   id_universidad INT,
   id_candidato INT,
-  FOREIGN KEY (id_universidad) REFERENCES universidad (id) ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY (id_candidato) REFERENCES candidato (id) ON DELETE CASCADE ON UPDATE CASCADE
+  FOREIGN KEY (id_universidad) REFERENCES universidad (id) ON DELETE CASCADE ,
+  FOREIGN KEY (id_candidato) REFERENCES candidato (id) ON DELETE CASCADE 
 );
 
 -- Crear la tabla experiencia_laboral
@@ -110,7 +110,7 @@ CREATE TABLE experiencia_laboral (
   actividad_empleo_dos VARCHAR(150),
   salario_empleo_dos float(7),
   id_candidato INT,
-  FOREIGN KEY (id_candidato) REFERENCES candidato (id) ON DELETE CASCADE ON UPDATE CASCADE
+  FOREIGN KEY (id_candidato) REFERENCES candidato (id) ON DELETE CASCADE 
 );
 
 -- Crear la tabla usuario
